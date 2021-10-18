@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Hello</title>
+	</head>
+	
+	<body>
+		Hello <span th:text="${ name }">ABC</span><p />
+		Hello <span th:utext="${ name }">ABC</span><p />
+		資料筆數：<div th:text="${ #lists.size(scores) }" >0</div>
+		<table border="1">
+			<tr>
+				<th>序號</th>
+				<th>分數</th>
+				<th>好棒</th>
+				<th>及格</th>
+			</tr>
+			<tr th:each="score, scorestat:${scores}">
+				<td th:text="${ scorestat.index }">0</td>
+				<td th:text="${ score }">0</td>
+				<td th:text="(${ score } >= 90) ? 'V' : ''"></td>
+				<td th:if="${ score >= 60 }">Pass</td>
+				<td th:unless="${ score >= 60 }">Fail</td>
+			</tr>
+		</table>
+	</body>
+	
+</html>
