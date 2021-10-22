@@ -11,6 +11,8 @@ import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.aspectj.weaver.tools.Trace;
+
 @Entity
 @Table(name = "husband")
 public class Husband {
@@ -18,7 +20,7 @@ public class Husband {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "name", length = 50, nullable = false)
+	@Column(name = "name", length = 50, nullable = false, unique = true)
 	private String name;
 	
 	@OneToOne(cascade = CascadeType.ALL)

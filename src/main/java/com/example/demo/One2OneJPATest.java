@@ -22,9 +22,9 @@ public class One2OneJPATest {
 		
 		//add();
 		//query();
-		findOne(1L);
-		findOne(999L);
-		
+		//findOne(1L);
+		//findOne(999L);
+		findOne("John");
 	}
 	
 	private static void findOne(Long id) {
@@ -38,7 +38,7 @@ public class One2OneJPATest {
 	}
 	
 	private static void findOne(String name) {
-		// 下課時間做..
+		System.out.println(husbandRepository.findByName(name));
 	}
 	
 	private static void query() {
