@@ -31,7 +31,7 @@ public class One2ManyJPATest {
 	
 	public static void add() {
 		Magazine magazine = new Magazine();
-		magazine.setTitle("Python2");
+		magazine.setTitle("Java2");
 		// save magazine
 		magazineRepository.save(magazine);
 		
