@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,8 +21,24 @@ public class One2OneJPATest {
 		husbandRepository = context.getBean(HusbandRepository.class);
 		
 		//add();
-		query();
+		//query();
+		findOne(1L);
+		findOne(999L);
 		
+	}
+	
+	private static void findOne(Long id) {
+		Optional<Husband> optional = husbandRepository.findById(id);
+		if(optional.isPresent()) {
+			Husband husband = optional.get();
+			System.out.println(husband);
+		} else {
+			System.out.println("Not found!");
+		}
+	}
+	
+	private static void findOne(String name) {
+		// 下課時間做..
 	}
 	
 	private static void query() {
